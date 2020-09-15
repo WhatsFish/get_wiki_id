@@ -23,6 +23,9 @@ def get_id(name):
     pages = DATA["query"]["pages"]
     for k in pages.keys():
         info = pages[k]
+        if len(info) <= 3:
+            print("get id failed")
+            sys.exit(0)
         wiki_id = info["pageprops"]["wikibase_item"]
     print(wiki_id)
 
@@ -33,6 +36,6 @@ if __name__ == '__main__':
         print("input error!")
         print("demo:")
         print("python getid 高永文")
-        sys,exit(0)
+        sys.exit(0)
         
     get_id(sys.argv[1])
